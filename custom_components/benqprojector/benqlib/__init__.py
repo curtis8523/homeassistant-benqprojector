@@ -10,3 +10,11 @@ from .benqprojector import (
     BenQProjectorSerial,
     BenQProjectorTelnet,
 )
+
+__all__ = [
+    "BAUD_RATES",
+    "DEFAULT_PORT",
+    "BenQProjector",
+    "BenQProjectorSerial",
+    "BenQProjectorTelnet",
+]

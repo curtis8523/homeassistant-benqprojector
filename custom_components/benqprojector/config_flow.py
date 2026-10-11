@@ -4,12 +4,12 @@ from __future__ import annotations
 
 import logging
 import os
-from typing import Any, Final
+from typing import Any
 
 import serial
 import serial.tools.list_ports
 import voluptuous as vol
-from benqprojector import (
+from .benqlib import (
     BAUD_RATES,
     DEFAULT_PORT,
     BenQProjectorSerial,
@@ -19,7 +19,6 @@ from homeassistant.config_entries import ConfigEntry, ConfigFlow, OptionsFlow
 from homeassistant.const import CONF_HOST, CONF_PORT, CONF_TYPE, UnitOfTime
 from homeassistant.core import callback
 from homeassistant.data_entry_flow import FlowResult
-from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers.selector import (
     NumberSelector,
     NumberSelectorConfig,
@@ -271,7 +270,7 @@ class BenQProjectorOptionsFlowHandler(OptionsFlow):
         {
             vol.Optional(CONF_INTERVAL, default=CONF_DEFAULT_INTERVAL): NumberSelector(
                 NumberSelectorConfig(
-                    min=0,
+                    min=1,
                     mode=NumberSelectorMode.BOX,
                     unit_of_measurement=UnitOfTime.SECONDS,
                 )

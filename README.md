@@ -1,3 +1,12 @@
+> **Fork note (branch `mm-fixes`).** Based on release 0.1.4 with the `benqprojector` 0.1.9
+> library vendored in `custom_components/benqprojector/benqlib` and fixed:
+> setup retries instead of failing for good, the poll loop survives errors and reconnects,
+> reloads no longer leave a second poller fighting over the projector connection, user
+> commands no longer fail with "Too busy" during a poll, unsupported commands stop being
+> polled (no more log flood), one stable device instead of a host:port duplicate, select
+> values like `16:9` show, and lamp hours are available while the projector is off.
+> Tests: `pytest tests` (a fake projector, plus the Home Assistant test harness).
+
 # Home Assistant integration for BenQ projectors
 
 ![Python][python-shield]
